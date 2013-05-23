@@ -1,0 +1,12 @@
+{
+  "index": {
+    "info": "{\"sensu\":{\"version\":\"0.9.12.beta.6\"},\"rabbitmq\":{\"keepalives\":{\"messages\":null,\"consumers\":null},\"results\":{\"messages\":null,\"consumers\":null},\"connected\":false},\"redis\":{\"connected\":true}}",
+    "clients": "[{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"nested\":{\"attribute\":true},\"timestamp\":1364343737}]",
+    "checks": "[{\"command\":\"echo -n OK\",\"subscribers\":[\"test\"],\"interval\":60,\"name\":\"test\"}]",
+    "events": "[{\"output\":\"i-424242 true\",\"status\":2,\"issued\":1364343741,\"handlers\":[\"default\"],\"flapping\":false,\"occurrences\":11828,\"client\":\"i-424242\",\"check\":\"tokens\"},{\"output\":\"foobar\",\"status\":1,\"issued\":1364343741,\"handlers\":[\"default\"],\"flapping\":false,\"occurrences\":11828,\"client\":\"i-424242\",\"check\":\"standalone\"}]",
+    "stashes": "[]"
+  },
+  "show": {
+    "clients/i-424242": "{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"nested\":{\"attribute\":true},\"timestamp\":1364343737}"
+  }
+}
