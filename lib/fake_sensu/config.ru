@@ -1,2 +1,2 @@
-require File.expand_path 'spec/fake_sensu/api'
-run FakeSensu
+require File.join(File.dirname(__FILE__), "api")
+run FakeSensu::Api
