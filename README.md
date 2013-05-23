@@ -1,13 +1,18 @@
 # Fake Sensu
-A sensu api without all the dependencies. For testing.
+A sensu api without all the dependencies. For testing. 
 
 ## Usage
-Include it in your spec helper
+Include it in your spec helper, and start it
 
 ```ruby
 require 'fake_sensu'
-FakeSensu.version = '0.10.12'
-FakeSensu.start!
+
+RSpec.configure do |config|
+  config.before :suite do
+    FakeSensu.version = '0.9.12' # optional
+    FakeSensu.start!
+  end
+end
 ```
 
 ## Adding a new verision
