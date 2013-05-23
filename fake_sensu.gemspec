@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alan.sebastian@sonian.net"]
   spec.description   = %q{Mocking library for sensu}
   spec.summary       = %q{Mocking library/server for sensu}
-  spec.homepage      = "http://"
+  spec.homepage      = "http://www.github.com/asebastian/fake_sensu"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
