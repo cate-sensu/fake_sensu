@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby
+require 'json'
+require 'rest_client'
+require 'fileutils'
+
+if ARGV[0]
+  # TODO: ensure password/user/port is included in addition to uri
+  @sensu_path = ARGV[0]
+else
+  abort("USAGE:\n\nadd_version http://foo:bar@localhost:4567\n\n")
+end
+
+class FakeSensu
+  class GenerateResponses
+
+    def initialize(args={})
+      @sensu_path = args[:sensu_path]
+      @version = get_api_version
+      @response_file = create_response_file
+      generate_index_responses
+      generate_show_responses
+      write_out
+    end
+
+    def get_api_version
+      req = JSON.parse(RestClient.get("#{@sensu_path}/info"))
+      api_version = req["sensu"]["version"]
+    end
+
+    def create_response_file
+      filename = "#{@version}.json"
+      file_path = File.expand_path "./responses/#{filename}"
+      unless File.exists? file_path
+        FileUtils.touch file_path
+      end
+      file_path
+    end
+
+    def generate_index_responses
+      @index_responses = {"index" => {}}
+      %w{info clients checks events stashes}.each do |path|
+        begin
+          puts "generating index responses for #{path}"
+          resp = RestClient.get("#{@sensu_path}/#{path}")
+          @index_responses["index"][path] = resp
+        rescue Exception => e
+          puts e
+          next
+        end
+      end
+    end
+
+    def generate_show_responses
+      @show_responses = {"show" => {}}
+      paths = %w{
+        clients/i-424242
+      }
+      paths.each do |path|
+        begin
+          puts "generating show response for #{path}"
+          resp = RestClient.get("#{@sensu_path}/#{path}")
+          @show_responses["show"][path] = resp
+        rescue Exception => e
+          next
+        end
+      end
+    end
+
+    def write_out
+      responses = @index_responses.merge(@show_responses)
+      File.open(@response_file, 'w') { |f| f.write(JSON.pretty_generate(responses)) }
+    end
+
+  end
+end
+FakeSensu::GenerateResponses.new(:sensu_path => @sensu_path)
