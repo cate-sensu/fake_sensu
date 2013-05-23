@@ -2,7 +2,7 @@
 A sensu api without all the dependencies. For testing. 
 
 ## Usage
-Include it in your spec helper, and start it
+Include it in your spec or test helper, and start it:
 
 ```ruby
 require 'fake_sensu'
