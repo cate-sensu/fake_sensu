@@ -7,7 +7,7 @@ if ARGV[0]
   # TODO: ensure password/user/port is included in addition to uri
   @sensu_path = ARGV[0]
 else
-  abort("USAGE:\n\nadd_version http://foo:bar@localhost:4567\n\n")
+  abort("USAGE:\n\generate_responses http://foo:bar@localhost:4567\n\n")
 end
 
 class FakeSensu
