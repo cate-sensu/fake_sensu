@@ -1,0 +1,12 @@
+{
+  "index": {
+    "info": "{\"sensu\":{\"version\":\"0.10.2\"},\"rabbitmq\":{\"keepalives\":{\"messages\":56,\"consumers\":0},\"results\":{\"messages\":0,\"consumers\":0},\"connected\":true},\"redis\":{\"connected\":true}}",
+    "clients": "[{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377816922}]",
+    "checks": "[]",
+    "events": "[{\"output\":\"CRITICAL\",\"status\":2,\"issued\":1377816922,\"flapping\":false,\"occurrences\":1,\"client\":\"i-424242\",\"check\":\"test\"}]",
+    "stashes": "[{\"path\":\"test/test\",\"content\":{\"key\":\"value\"}}]"
+  },
+  "show": {
+    "clients/i-424242": "{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377816922}"
+  }
+}
