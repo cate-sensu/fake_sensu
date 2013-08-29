@@ -2,12 +2,13 @@
 require 'json'
 require 'rest_client'
 require 'fileutils'
+require 'rest-client'
 
 if ARGV[0]
   # TODO: ensure password/user/port is included in addition to uri
   @sensu_path = ARGV[0]
 else
-  abort("USAGE:\n\nadd_version http://foo:bar@localhost:4567\n\n")
+  abort("USAGE:\n\ngenerate_responses http://foo:bar@localhost:4567\n\n")
 end
 
 class FakeSensu
@@ -29,7 +30,7 @@ class FakeSensu
 
     def create_response_file
       filename = "#{@version}.json"
-      file_path = File.expand_path "./responses/#{filename}"
+      file_path = File.expand_path "./lib/fake_sensu/responses/#{filename}"
       unless File.exists? file_path
         FileUtils.touch file_path
       end
