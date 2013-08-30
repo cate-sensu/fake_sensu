@@ -1,3 +1,6 @@
+## 0.1.2
+* Better 0.10.2 responses
+
 ## 0.1.1
 * Simplify version api
 
