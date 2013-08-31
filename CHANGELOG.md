@@ -1,3 +1,6 @@
+## 0.1.3
+* Adds second client with fqdn in client name
+
 ## 0.1.2
 * Better 0.10.2 responses
 
