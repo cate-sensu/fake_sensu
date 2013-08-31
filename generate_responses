@@ -55,6 +55,7 @@ class FakeSensu
       @show_responses = {"show" => {}}
       paths = %w{
         clients/i-424242
+        clients/www.fqdn.com
       }
       paths.each do |path|
         begin

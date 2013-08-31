@@ -1,12 +1,13 @@
 {
   "index": {
-    "info": "{\"sensu\":{\"version\":\"0.10.2\"},\"rabbitmq\":{\"keepalives\":{\"messages\":1400,\"consumers\":0},\"results\":{\"messages\":0,\"consumers\":0},\"connected\":true},\"redis\":{\"connected\":true}}",
-    "clients": "[{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377890282}]",
+    "info": "{\"sensu\":{\"version\":\"0.10.2\"},\"rabbitmq\":{\"keepalives\":{\"messages\":0,\"consumers\":1},\"results\":{\"messages\":0,\"consumers\":1},\"connected\":true},\"redis\":{\"connected\":true}}",
+    "clients": "[{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377979075},{\"name\":\"www.fqdn.com\",\"address\":\"192.168.5.5\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377979075}]",
     "checks": "[{\"command\":\"echo -n OK\",\"subscribers\":[\"test\"],\"interval\":60,\"name\":\"test\"},{\"command\":\"echo -n OK\",\"subscribers\":[\"tokens\"],\"interval\":60,\"name\":\"tokens\"}]",
-    "events": "[{\"output\":\"CRITICAL\",\"status\":2,\"issued\":1377890282,\"flapping\":false,\"occurrences\":1,\"client\":\"i-424242\",\"check\":\"test\"}]",
+    "events": "[{\"output\":\"CRITICAL\",\"status\":2,\"issued\":1377979075,\"flapping\":false,\"occurrences\":1,\"client\":\"i-424242\",\"check\":\"test\"},{\"output\":\"No keep-alive sent from client in over 120 seconds\",\"status\":2,\"issued\":1377979235,\"handlers\":[\"default\"],\"flapping\":false,\"occurrences\":2,\"client\":\"i-424242\",\"check\":\"keepalive\"},{\"output\":\"CRITICAL\",\"status\":2,\"issued\":1377979075,\"flapping\":false,\"occurrences\":1,\"client\":\"www.fqdn.com\",\"check\":\"test\"},{\"output\":\"No keep-alive sent from client in over 120 seconds\",\"status\":2,\"issued\":1377979235,\"handlers\":[\"default\"],\"flapping\":false,\"occurrences\":2,\"client\":\"www.fqdn.com\",\"check\":\"keepalive\"}]",
     "stashes": "[{\"path\":\"tester\",\"content\":{\"key\":\"value\"}},{\"path\":\"test/test\",\"content\":{\"key\":\"value\"}}]"
   },
   "show": {
-    "clients/i-424242": "{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377890282}"
+    "clients/i-424242": "{\"name\":\"i-424242\",\"address\":\"127.0.0.1\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377979075}",
+    "clients/www.fqdn.com": "{\"name\":\"www.fqdn.com\",\"address\":\"192.168.5.5\",\"subscriptions\":[\"test\"],\"keepalive\":{\"thresholds\":{\"warning\":60,\"critical\":120}},\"timestamp\":1377979075}"
   }
 }
