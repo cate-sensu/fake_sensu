@@ -109,7 +109,6 @@ module FakeSensu
       events.each do |event|
         if event["client"] == client_name && event["check"] == check_name
           events.delete_if {|e| e.has_value? check_name}
-          # settings.events = events.to_s
         end
       end
       body ''
