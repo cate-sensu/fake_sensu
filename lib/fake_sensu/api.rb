@@ -92,12 +92,15 @@ module FakeSensu
 
     get %r{/events?/([\w\.-]+)/([\w\.-]+)$} do |client_name, check_name|
       content_type :json
-      event_json = settings.events[client_name]
+      event_json = JSON.parse(settings.events)
       unless event_json.nil?
-        event_json[:client_name] = check
-        event_json[:check_name] = check_name 
-        @body = event_json
+        event_json.each do |event|
+          if event.has_value?(check_name) && event.has_value?(client_name)
+            @body = event.to_json
+          end
+        end
       end
+      @body ? "#{@body}" : ""
     end
 
     delete %r{/events?/([\w\.-]+)/([\w\.-]+)$} do |client_name, check_name|
