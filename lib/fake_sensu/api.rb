@@ -5,7 +5,7 @@ module FakeSensu
   class Api < Sinatra::Base
 
     configure do
-      version = ENV['FAKE_SENSU_VERSION']
+      version = ENV['FAKE_SENSU_VERSION'] || "0.10.2"
       response_path = File.dirname(__FILE__) + "/responses/#{version}.json"
       responses = JSON.parse(File.read(response_path))["index"]
       set :info, responses["info"]
