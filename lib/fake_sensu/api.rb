@@ -108,7 +108,10 @@ module FakeSensu
       events = JSON.parse(settings.events)
       events.each do |event|
         if event["client"] == client_name && event["check"] == check_name
-          events.delete_if {|e| e.has_value? check_name}
+          events.delete_if {|e| 
+            (e.has_value?(check_name) && e.has_value?(client_name))
+          }
+          settings.events = events.to_json
         end
       end
       body ''
