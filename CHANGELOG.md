@@ -1,3 +1,7 @@
+## 0.1.4
+* Fix bugs
+* Add specs
+
 ## 0.1.3
 * Adds second client with fqdn in client name
 
